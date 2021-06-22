@@ -1,0 +1,12 @@
+.persons-list-container {
+    display: flex;
+    width: 100%;
+}
+
+.persons-list-object {
+    margin-right: 30px;
+}
+
+.persons-property {
+    /* font-size: 20px; */
+}
