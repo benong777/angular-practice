@@ -1,19 +1,19 @@
-<p class="persons-property">{{person.fName}}
-    <span>
-        <input  type="text" 
-                *ngIf="editMode"
-                class="form-control"
-                >
-        <!-- <input
-      type="text"
-      class="form-control"
-      placeholder="Year"
-      [(ngModel)]="year"> -->
-    </span>
-</p>
+<p *ngIf="!editMode" class="persons-property">{{person.fName}}</p>
+<p *ngIf="!editMode" class="persons-property">{{person.lName}}</p>
+<p *ngIf="!editMode" class="persons-property">{{person.year}}</p>
 
-<p class="persons-property">{{person.lName}}</p>
-<p class="persons-property">{{person.year}}</p> 
+<p *ngIf="editMode">
+    <input  type="text" class="form-control edit-box"
+            [(ngModel)]="person.fName">
+</p>
+<p *ngIf="editMode">
+    <input  type="text" class="form-control"
+            [(ngModel)]="person.lName">
+</p>
+<p *ngIf="editMode">
+    <input  type="text" class="form-control"
+            [(ngModel)]="person.year">
+</p>
 
 <!-- Hide "Remove" and "Edit" btns when in editMode -->
 <button *ngIf="!editMode"
@@ -27,3 +27,4 @@
         (click)="cancelEditPerson()">Cancel</button>
 <button *ngIf="editMode"
         (click)="updatePerson()">Update</button>
+

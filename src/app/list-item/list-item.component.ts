@@ -16,11 +16,16 @@ import { Person } from '../interfaces/person.interface';
 export class ListItemComponent {
     editMode = false;
     
-    @Input() person: Person = {
+    // @Input() person: Person = {
+    //     fName: '',
+    //     lName: '',
+    //     year: 0
+    // }
+    @Input() person = {
         fName: '',
         lName: '',
         year: 0
-    }
+    };
 
     @Output() removePersonEvent = new EventEmitter();
     @Output() updatePersonEvent = new EventEmitter();
@@ -38,7 +43,7 @@ export class ListItemComponent {
     }
 
     updatePerson() {
-        this.updatePersonEvent.emit(this.person);
+        this.updatePersonEvent.emit();
         this.editMode = false;
     }
     

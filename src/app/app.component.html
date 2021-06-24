@@ -352,7 +352,6 @@
 
   </div>
 
-  <div>
     <input 
       type="text"
       class="form-control"
@@ -368,21 +367,21 @@
       class="form-control"
       placeholder="Year"
       [(ngModel)]="year">
-  </div>
 
   <button class="btn btn-primary"
           (click)="addPerson()">Add person
   </button>
 
   <div class="persons-list-container">
-      <!-- <p class="persons-property">{{person.fName}}</p>
-      <p class="persons-property">{{person.lName}}</p>
-      <p class="persons-property">{{person.year}}</p> 
-      <button (click)="removePerson(i)">Remove</button> -->
-      <app-list-item 
-        *ngFor="let person of persons; let i=index"
-        [person]="person"
-        (removePersonEvent)="removePerson(i)">
+    <app-list-item 
+    *ngFor="let person of persons; let i=index"
+    [person]="person"
+    (removePersonEvent)="removePerson(i)"
+    (updatePersonEvent)="updatePerson(i)">
+    <!-- <p class="persons-property">{{person.fName}}</p>
+    <p class="persons-property">{{person.lName}}</p>
+    <p class="persons-property">{{person.year}}</p> 
+    <button (click)="removePerson(i)">Remove</button> -->
       </app-list-item>
   </div>
     <router-outlet></router-outlet>

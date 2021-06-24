@@ -13,6 +13,10 @@ export class AppComponent {
   lastName = '';
   year: number = 0;
 
+  dummyObj = { fName: 'firstNamePlaceholder',
+               lName: 'lastNamePlaceholder',
+               year: 2050 };
+
   persons: Person[] = [
     {
       fName: "Joe",
@@ -45,5 +49,9 @@ export class AppComponent {
 
   removePerson(index: number) {
     this.persons.splice(index, 1);
+  }
+
+  updatePerson(index: number) {
+    this.persons.splice(index, 1, this.dummyObj);
   }
 }
