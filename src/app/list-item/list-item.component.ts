@@ -1,5 +1,7 @@
 import { Component, 
-         Input 
+         Input, 
+         Output,
+         EventEmitter
         } from '@angular/core';
 
 import { Person } from '../interfaces/person.interface';
@@ -17,7 +19,9 @@ export class ListItemComponent {
         year: 0
     }
 
-    removePerson(event: number) {
+    @Output() removePersonEvent = new EventEmitter();
 
+    removePerson() {
+        this.removePersonEvent.emit();
     }
 }

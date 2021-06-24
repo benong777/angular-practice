@@ -375,12 +375,14 @@
   </button>
 
   <div class="persons-list-container">
-    <div class="persons-list-object"  *ngFor="let person of persons; let i=index">
       <!-- <p class="persons-property">{{person.fName}}</p>
       <p class="persons-property">{{person.lName}}</p>
       <p class="persons-property">{{person.year}}</p> 
       <button (click)="removePerson(i)">Remove</button> -->
-      <app-list-item [person]="person"></app-list-item>
-    </div>
+      <app-list-item 
+        *ngFor="let person of persons; let i=index"
+        [person]="person"
+        (removePersonEvent)="removePerson(i)">
+      </app-list-item>
   </div>
     <router-outlet></router-outlet>
