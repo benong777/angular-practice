@@ -1,7 +1,8 @@
+import { FormControl } from '@angular/forms';
 import { Component, 
          Input, 
          Output,
-         EventEmitter
+         EventEmitter,
         } from '@angular/core';
 
 import { Person } from '../interfaces/person.interface';
@@ -13,6 +14,8 @@ import { Person } from '../interfaces/person.interface';
 })
 
 export class ListItemComponent {
+    editMode = false;
+    
     @Input() person: Person = {
         fName: '',
         lName: '',
@@ -20,8 +23,23 @@ export class ListItemComponent {
     }
 
     @Output() removePersonEvent = new EventEmitter();
+    @Output() updatePersonEvent = new EventEmitter();
 
     removePerson() {
         this.removePersonEvent.emit();
     }
+
+    editPerson() {
+        this.editMode = true;
+    }
+
+    cancelEditPerson() {
+        this.editMode = false;
+    }
+
+    updatePerson() {
+        this.updatePersonEvent.emit(this.person);
+        this.editMode = false;
+    }
+    
 }
