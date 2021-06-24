@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Person } from './interfaces/person.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   lastName = '';
   year: number = 0;
 
-  persons = [
+  persons: Person[] = [
     {
       fName: "Joe",
       lName: "Montana",
