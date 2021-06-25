@@ -1,5 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { Component, 
+         OnInit,
          Input, 
          Output,
          EventEmitter,
@@ -13,7 +14,7 @@ import { Person } from '../interfaces/person.interface';
     styleUrls: ['./list-item.component.css']
 })
 
-export class ListItemComponent {
+export class ListItemComponent implements OnInit {
     editMode = false;
     
     // @Input() person: Person = {
@@ -28,7 +29,11 @@ export class ListItemComponent {
     };
 
     @Output() removePersonEvent = new EventEmitter();
-    @Output() updatePersonEvent = new EventEmitter();
+    @Output() updatePersonEvent = new EventEmitter<any>();
+
+    ngOnInit() {
+        // this.updatePersonEvent.emit("test");
+    }
 
     removePerson() {
         this.removePersonEvent.emit();
@@ -43,7 +48,12 @@ export class ListItemComponent {
     }
 
     updatePerson() {
-        this.updatePersonEvent.emit();
+        //this.updatePersonEvent.emit("Success!!!");
+        this.updatePersonEvent.emit({
+            fName: this.person.fName,
+            lName: this.person.lName,
+            year:  this.person.year
+        });
         this.editMode = false;
     }
     

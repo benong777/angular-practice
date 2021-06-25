@@ -7,7 +7,7 @@
             [(ngModel)]="person.fName">
 </p>
 <p *ngIf="editMode">
-    <input  type="text" class="form-control"
+    <input  type="text" class="form-control" #firstName
             [(ngModel)]="person.lName">
 </p>
 <p *ngIf="editMode">
