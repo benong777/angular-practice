@@ -373,7 +373,7 @@
   </button>
 
   <div class="persons-list-container">
-    <app-list-item class="border"
+    <app-list-item class="border col"
         *ngFor="let person of persons; let i=index"
         [person]="person"
         (removePersonEvent)="removePerson(i)"
