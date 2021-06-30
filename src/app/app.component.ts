@@ -52,8 +52,6 @@ export class AppComponent {
   }
 
   updatePerson(index: number, updatedPerson: any) { 
-    //this.persons.splice(index, 1, this.dummyObj);
-    // console.log("Success!!!");
     console.log(updatedPerson);
     this.persons.splice(index, 1, updatedPerson);
 
